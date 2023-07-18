@@ -1,0 +1,54 @@
+<div class="container">
+  <app-slider></app-slider>
+  <div class="row">
+    <!-- Movies -->
+    <div class="text-center">
+      <h2 class="lead my-4 fs-3">Our Popular Collection For You</h2>
+    </div>
+    <div
+      *ngFor="
+        let m of movies
+          | paginate
+            : { itemsPerPage: 20, currentPage: page, totalItems: totalPages }
+      "
+      class="card col-4 p-2 m-3"
+      style="width: 18rem"
+    >
+      <!-- <img
+        src="https://api.themoviedb.org/3/discover/movie{{ m.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      /> -->
+      <img
+        src="https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          <b> {{ m.title }} </b>
+        </h5>
+        <div class="paragraph-container">
+          <p class="card-text">
+            {{ m.overview }}
+          </p>
+        </div>
+        <div class="text-center mb-1" style="font-size: smaller">
+          <p>{{ m.release_date | date : "yyyy" }}</p>
+        </div>
+        <div class="text-center mt-2">
+          <a
+            routerLink="/lazy-loading/movie/{{ m.id }}/details"
+            class="btn btn-primary btn-sm"
+            >See More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="text-center my-2">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

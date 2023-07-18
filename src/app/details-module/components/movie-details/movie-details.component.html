@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="card p-2 m-3 col-12">
+      <!-- <img
+        src="https://api.themoviedb.org/3/discover/movie{{ movie?.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      /> -->
+      <img
+        src="https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body text-center">
+        <h4 class="card-title">
+          <b> {{ movie?.title }} </b>
+        </h4>
+        <div class="paragraph-container">
+          <p class="card-text">
+            {{ movie?.overview }}
+          </p>
+        </div>
+        <div class="mb-1">
+          <h3>
+            <b> Spoken Languages:</b>
+            <span
+              class="badge bg-secondary m-2"
+              *ngFor="let l of movie?.spoken_languages"
+              >{{ l?.name }}</span
+            >
+          </h3>
+        </div>
+        <div class="mb-1">
+          <h3>
+            <b> Production Countries</b>
+            <span
+              class="badge bg-success m-2"
+              *ngFor="let c of movie?.production_countries"
+              >{{ c?.name }}</span
+            >
+          </h3>
+        </div>
+        <div class="mt-2">
+          <span class="badge text-bg-warning">{{ movie?.tagline }}</span>
+        </div>
+        <div class="mb-2" style="font-size: smaller">
+          <p>{{ movie?.release_date }}</p>
+        </div>
+        <div class="mt-5">
+          <a routerLink="/" class="btn btn-success btn-sm mx-2">Go Back</a>
+          <a href="https://fastxmovie.com" class="mx-2" target="_blank"
+            ><span class="badge text-bg-danger">Watch the movie</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
