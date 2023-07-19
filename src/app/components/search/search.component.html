@@ -2,7 +2,7 @@
   <app-slider></app-slider>
   <div class="row">
     <!-- Movies -->
-    <div class="text-center">
+    <!-- <div class="text-center">
       <h2 class="lead my-4 fs-3">Search Result</h2>
     </div>
     <div
@@ -14,11 +14,6 @@
       class="card col-4 p-2 m-3"
       style="width: 18rem"
     >
-      <!-- <img
-        src="https://api.themoviedb.org/3/discover/movie{{ m.poster_path }}"
-        class="card-img-top"
-        alt="..."
-      /> -->
       <img
         src="https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         class="card-img-top"
@@ -42,6 +37,38 @@
             class="btn btn-primary btn-sm"
             >See More</a
           >
+        </div>
+      </div>
+    </div> -->
+
+    <div
+      style="width: 18rem"
+      *ngFor="
+        let m of movies
+          | paginate
+            : { itemsPerPage: 20, currentPage: page, totalItems: totalPages }
+      "
+      class="col-4 p-2 m-3"
+    >
+      <div class="profile-card-2">
+        <a
+          style="text-decoration: none; color: inherit; cursor: pointer"
+          routerLink="/lazy-loading/movie/{{ m.id }}/details"
+        >
+          <img
+            src="https://images.pexels.com/photos/819848/pexels-photo-819848.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            class="img img-responsive object-fit-cover border border-1 rounded-1"
+          />
+        </a>
+
+        <div class="profile-name fs-4 mb-5">{{ m.title }}</div>
+        <div class="paragraph-container profile-username my-5">
+          <p class="card-text">
+            {{ m.overview }}
+          </p>
+        </div>
+        <div class="profile-username mt-2">
+          {{ m.release_date | date : "yyyy" }}
         </div>
       </div>
     </div>
