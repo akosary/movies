@@ -8,7 +8,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MovieComponent implements OnInit {
   movies: any;
-  totalPages: number = 0;
+  totalPages?: number = 0;
   _page: number = 1;
   p: number = 1;
 

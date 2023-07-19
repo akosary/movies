@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Movie } from '../models/movie';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,15 +13,15 @@ export class MoviesService {
   public searchData$ = this.dataSubject.asObservable();
   constructor(private _http: HttpClient) {}
 
-  getAll(page: number): Observable<any> {
+  getAll(page: number): Observable<Movie> {
     return this._http.get(`${this.apiBaseURL}${this.nestedURL}?page=${page}`);
   }
 
-  getById(id: any): Observable<any> {
+  getById(id: any): Observable<Movie> {
     return this._http.get(`${this.apiBaseURL}${this.getByIdURL}/${id}`);
   }
 
-  search(query: any): Observable<any> {
+  search(query: any): Observable<Movie> {
     return this._http.get(`${this.apiBaseURL}/search/movie?query=${query}`);
   }
 
