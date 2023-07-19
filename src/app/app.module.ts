@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { SliderComponent } from './components/layout/slider/slider.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SliderComponent } from './components/layout/slider/slider.component';
     NavbarComponent,
     FooterComponent,
     SliderComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

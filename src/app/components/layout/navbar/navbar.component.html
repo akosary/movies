@@ -18,14 +18,20 @@
           <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form
+        [formGroup]="searchForm"
+        class="d-flex"
+        role="search"
+        (ngSubmit)="onSubmit()"
+      >
         <input
+          formControlName="word"
           class="form-control me-2"
           type="search"
-          placeholder="Search"
+          placeholder="Search "
           aria-label="Search"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success">Search</button>
       </form>
     </div>
   </div>
